@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ToDoList.Models.KhoaHoc>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h1>Khoá học</h1>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="card-body px-0 py-1">
+                        <ul class="widget-todo-list-wrapper" id="widget-todo-list">
+                            <li class="widget-todo-item">
+                                <div class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <i data-feather="list" class="cursor-move"></i>
+                                        <span class="widget-todo-title ml-50">
+                                            <a asp-action="MonHoc" asp-route-id="@item.ID">@item.TenKhoaHoc</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

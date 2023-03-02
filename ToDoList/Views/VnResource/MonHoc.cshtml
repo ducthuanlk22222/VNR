@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<ToDoList.Models.MonHoc> monHoc = ViewBag.ListSubject as List<ToDoList.Models.MonHoc>;
+}
+
+<div class="col-lg-6 col-md-6">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <p>
+                    <h1>@ViewBag.NamePage</h1>
+                </p>
+
+                @if (monHoc.Count > 0)
+                {
+                    for (int i = 0; i < monHoc.Count; i++)
+                    {
+                        <ol class="list-group mb-2">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>@monHoc[i].TenMonHoc</span>
+                            </li>
+                        </ol>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-light border-dark w-50">
+                        <h3 class="alert-heading">Rất tiếc, không tìm thấy khoá học nào </h3>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
